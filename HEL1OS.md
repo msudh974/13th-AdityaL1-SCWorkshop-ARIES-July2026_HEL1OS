@@ -49,14 +49,26 @@ We generate derived data products like light curves and spectral files from the 
 **Note**: The latest package for generation of Level-2 data products from the Level-1 event list is under peer review, and parallely, extensive testing is underway at Space Astronomy Group. 
 
 ### 3.1 What to expect from the Level-2 data processing package?
-1. Three functionalities (light curves, Type II and Type I spectra) provided as an installable package.  
-2. Livetime correction: HEL1OS provides information on the number of events from each detector that could not be accepted into the science event list. These so-called "rejected" events do not have energy information, but help us gauge the amount of "stress" the event processing and recording system undergoes during times of intense flare flux. A neat method has been developed to take these lost events into account, and the first version of this module is part of the Level-2 processing package.
+1. Generation of the three data products (light curves, Type II and Type I spectra) are now possible using a single package that will be installable and used from any location. 
+2. Functional Updates over the current tools: 
+    - Multiple Type I spectra can be generated for a given "window start time" and "window end time",
+    - "Stitching" data across multiple data segments - for example, a flare has started at 23:50:00 UT and ends at 04:00:00 UT the next day, or a flare has occurred across data dumps etc.
+3. Livetime correction: 
+    - HEL1OS provides information on the number of events from each detector that could not be accepted into the science event list. 
+    - These so-called "rejected" events do not have energy information, but help us gauge the amount of "stress" the event processing and recording system undergoes during times of intense flare flux. 
+    - A neat method has been developed to take these lost events into account, and the first version of this module is part of the Level-2 processing package.
 
-**Note**: Work has started on an API. 
+**Note**: Work has commenced on an API. 
 
-### 3.2 Expected Level-2 products
-1. HEL1OS Hard X-ray flare list: These are a subset of all the flares detected by HEL1OS. They consist of those flare who have fluence >150 counts cm<sup>2</sup>, and are dated from July 2024 onwards. 
-2. HEL1OS SEP-Contamination Catalog: Energetic particles can deposit energy in the HEL1OS detectors, and depending on these events, the duration of the energetic particles can last for days. Analysis of any X-ray flares that have occurred during this period have to be handled with caution, especially while subtracting the background.
+### 3.2 Additional Level-2 products
+1. HEL1OS Hard X-ray flare list: These are a subset of all the flares detected by HEL1OS. 
+    - They consist of those flare who have fluence >150 counts cm<sup>2</sup>, and are dated from July 2024 onwards. 
+    - Will help the user to identify very hard X-ray flares across all GOES classes for interesting science.
+2. HEL1OS SEP-Contamination Catalog: 
+    - Energetic particles can deposit energy in the HEL1OS detectors. 
+    - Depending on the strength and duration of the particle events, the subsequent energy deposition in the HEL1OS detectors can last for as long as a week. 
+    - The catalog provides information on the start and end times of these events. 
+    - Analysis of any X-ray flares that have occurred during these period have to be handled with caution, especially while subtracting the background.
 
 ## 4. Accessing HEL1OS Level-1 Data
 ![HLS PRADAN 1](images/HLS_PRADAN1.png)
